@@ -1,0 +1,55 @@
+
+Attaching package: ‘igraph’
+
+The following objects are masked from ‘package:stats’:
+
+    decompose, spectrum
+
+The following object is masked from ‘package:base’:
+
+    union
+
+Parsed with column specification:
+cols(
+  source = col_character(),
+  interaction = col_double(),
+  target = col_character()
+)
+Parsed with column specification:
+cols(
+  ID = col_double(),
+  logFC = col_double(),
+  AveExpr = col_double(),
+  t = col_double(),
+  P.Value = col_double(),
+  adj.P.Val = col_double(),
+  B = col_double()
+)
+Writing constraints...
+Solving LP problem...
+Saving results...
+ 
+--- End of the CARNIVAL pipeline ---
+ 
+Writing constraints...
+Solving LP problem...
+Saving results...
+ 
+--- End of the CARNIVAL pipeline ---
+ 
+Parsed with column specification:
+cols(
+  source = col_character(),
+  interaction = col_double(),
+  target = col_character()
+)
+Writing constraints...
+Solving LP problem...
+Saving results...
+ 
+--- End of the CARNIVAL pipeline ---
+ 
+Error in resList[[1]] : subscript out of bounds
+Calls: runCARNIVAL -> solveCARNIVAL -> solveCARNIVALSingle
+Execution halted
+slurmstepd: error: Detected 1 oom-kill event(s) in step 16384942.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
