@@ -7,41 +7,7 @@ library(igraph)
 library(CARNIVAL)
 source("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/revision_COSMOS_functions.R")
 
-
-kinases_CCRCC_CPTAC <- as.data.frame(
-  read_delim("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/CCRCC_CPTAC_Kinase_Activities.txt", 
-             "\t", escape_double = FALSE, trim_ws = TRUE))
-
-kinases_CCRCC_CPTAC <- kinases_CCRCC_CPTAC[,c(2,3,5)]
-kinases_CCRCC_CPTAC <- dcast(kinases_CCRCC_CPTAC, formula = kinase~sample)
-row.names(kinases_CCRCC_CPTAC) <- kinases_CCRCC_CPTAC$kinase
-kinases_CCRCC_CPTAC <- kinases_CCRCC_CPTAC[,-1]
-kinases_CCRCC_CPTAC <- kinases_CCRCC_CPTAC[rowSums(is.na(kinases_CCRCC_CPTAC)) <= length(kinases_CCRCC_CPTAC[1,])*90/100,]
-
-kinase_meanoversd <- apply(kinases_CCRCC_CPTAC,1,function(x){mosd <- mean(x,na.rm = T) / sd(x, na.rm = T)})
-
-
-plot(density(kinase_meanoversd))
-
-bot_10pcent_kinase <- sort(kinase_meanoversd)[1:(length(kinase_meanoversd)*0.1)]
-top_10pcent_kinase <- sort(kinase_meanoversd, decreasing = T)[1:(length(kinase_meanoversd)*0.1)] 
-
-top_kinases <- c(bot_10pcent_kinase, top_10pcent_kinase)
-
-
-top_kinases <- as.data.frame(t(top_kinases))
-
-symbols <- names(top_kinases)
-
-# use mapIds method to obtain Entrez IDs
-mapping_symbole_to_entrez <- mapIds(org.Hs.eg.db, symbols, 'ENTREZID', 'SYMBOL')
-for(i in 1:length(names(top_kinases)))
-{
-  names(top_kinases)[i] <- mapping_symbole_to_entrez[names(top_kinases)[i]]
-}
-
-
-names(top_kinases) <- paste("X", names(top_kinases), sep = "")
+top_kinases <- as.data.frame(read_csv("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/ccrcc_CPTAC_top_kinase_carni_input.csv"))
 
 top_TF <- as.data.frame(read_csv("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/carni_TF_inputs.csv"))
 
@@ -53,8 +19,6 @@ meta_network <- as.data.frame(
   read_csv("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/meta_network_CCRCC_CPTAC_expfiltered.csv"))
 
 load("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/dorothea_pkg_df.RData") #ABCD
-
-########## END OF PREPROCESSING ##################
 
 ########## COSMOS #################
 
