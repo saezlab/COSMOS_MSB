@@ -73,6 +73,9 @@ top_hallmark$`p-value` <- -log10(top_hallmark$`p-value`)
 top_hallmark$pathway <- factor(top_hallmark$pathway, levels = top_hallmark$pathway)
 names(top_hallmark)[2] <- "-log10(p-value)"
 
+
+write_csv(top_hallmark,'results/COSMOS_result/top_hallmarks.csv')
+
 ggplot(top_hallmark, aes(x = pathway, y = `-log10(p-value)`, fill = `-log10(p-value)`)) + geom_bar(stat = "identity") + 
   coord_flip() + 
   theme_minimal() + 

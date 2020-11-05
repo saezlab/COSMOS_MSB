@@ -199,8 +199,14 @@ display_node_neighboorhood <- function(central_node,sif, att, n = 100)
   edges <- center_node_net
   
   names(edges) <- c("from","to","sign","weigth")
-  edges$color <- ifelse(edges$sign == 1, "green","red")
-  edges$arrows <- "to"
+  edges$color <- ifelse(edges$sign == 1, "grey","grey")
+  
+  # edges$arrows <- "to"
+  
+  edges$arrows.to.type <- ifelse(edges$sign == 1, "arrow","circle")
+  edges$enabled <- TRUE
+  edges$scaleFactor <- 1
+  
   edges <- unique(edges)
   
   names(nodes)[1] <- "id"
@@ -216,6 +222,8 @@ display_node_neighboorhood <- function(central_node,sif, att, n = 100)
   nodes$shadow <- ifelse(nodes$measured == 1, T, F)
   
   return(visNetwork(nodes, edges, width = 1600, height = 1600) %>% 
+           # visEdges(arrows = list(to = list(enabled = TRUE, 
+           #                                  scaleFactor = 1, type = 'circle'))) %>% 
            visOptions(highlightNearest = TRUE, 
                       nodesIdSelection = list(enabled = TRUE,
                                               style = 'width: 200px; height: 26px;

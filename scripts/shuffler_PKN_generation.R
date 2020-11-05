@@ -59,13 +59,13 @@ is_expressed <- function(x)
 
 
 # is_expressed("XGene3004__124975_91227")
+# 
+# meta_network_carnival_ready_exch_solved_fullomni$source <- sapply(meta_network_carnival_ready_exch_solved_fullomni$source,is_expressed)
+# meta_network_carnival_ready_exch_solved_fullomni <- meta_network_carnival_ready_exch_solved_fullomni[complete.cases(meta_network_carnival_ready_exch_solved_fullomni),]
+# meta_network_carnival_ready_exch_solved_fullomni$target <- sapply(meta_network_carnival_ready_exch_solved_fullomni$target,is_expressed)
+# meta_network_carnival_ready_exch_solved_fullomni <- meta_network_carnival_ready_exch_solved_fullomni[complete.cases(meta_network_carnival_ready_exch_solved_fullomni),]
 
-meta_network_carnival_ready_exch_solved_fullomni$source <- sapply(meta_network_carnival_ready_exch_solved_fullomni$source,is_expressed)
-meta_network_carnival_ready_exch_solved_fullomni <- meta_network_carnival_ready_exch_solved_fullomni[complete.cases(meta_network_carnival_ready_exch_solved_fullomni),]
-meta_network_carnival_ready_exch_solved_fullomni$target <- sapply(meta_network_carnival_ready_exch_solved_fullomni$target,is_expressed)
-meta_network_carnival_ready_exch_solved_fullomni <- meta_network_carnival_ready_exch_solved_fullomni[complete.cases(meta_network_carnival_ready_exch_solved_fullomni),]
-
-interaction_suffler_PKN_list <- lapply(seq(2,50,2),function(x,meta_PKN)
+interaction_suffler_PKN_list <- lapply(rep(2,1),function(x,meta_PKN) #seq(2,50,2)
 {
   number_shuffled_edges <- x * length(meta_PKN[,1]) / 100
   
@@ -83,9 +83,9 @@ interaction_suffler_PKN_list <- lapply(seq(2,50,2),function(x,meta_PKN)
   return(interaction_suffler_PKN)
 }, meta_PKN = meta_network_carnival_ready_exch_solved_fullomni)
 
-names(interaction_suffler_PKN_list) <- seq(2,50,2)
+names(interaction_suffler_PKN_list) <- seq(1,1,1)
 
-save(interaction_suffler_PKN_list,file = "support/revisions_interaction_suffler_PKN_list.RData") #The sampling is random. Save your res somewhere safe before overwritting it.
+save(interaction_suffler_PKN_list,file = "support/revisions_interaction_suffler_PKN_2psingle.RData") #The sampling is random. Save your res somewhere safe before overwritting it.
 
 for(i in 1:25)
 {

@@ -10,6 +10,7 @@ library(OmnipathR)
 library(igraph)
 library(jaccard)
 library(pheatmap)
+library("org.Hs.eg.db")
 
 setwd("~/Dropbox/COSMOS_MSB/results/input_range/")
 
@@ -20,7 +21,7 @@ jaccard_distance <- function(x, y){length(intersect(x, y))/length(union(x, y))}
 files <- list.files(".", recursive = T)
 files <- files[grepl("doublerun_res",files)]
 
-ori_file <- "../COSMOS_res_session.RData"
+ori_file <- "../COSMOS_result/COSMOS_res_session.RData"
 files <- c(ori_file,files)
 
 metab_to_pubchem <- as.data.frame(read_csv("../../support/metab_to_pubchem.csv"))
@@ -142,4 +143,4 @@ oraCor_matrix <- oraCor_matrix[,order(as.numeric(names(oraCor_matrix)))]
 oraCor_matrix <- as.data.frame(apply(oraCor_matrix,2,as.numeric))
 row.names(oraCor_matrix) <- names(oraCor_matrix)
 
-pheatmap(oraCor_matrix, cluster_rows = F, cluster_cols = F, display_numbers = T)
+pheatmap(oraCor_matrix[-1,1,drop = F], cluster_rows = F, cluster_cols = F, display_numbers = T)
