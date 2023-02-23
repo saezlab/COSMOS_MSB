@@ -11,6 +11,7 @@ library(igraph)
 library(jaccard)
 library(pheatmap)
 library("org.Hs.eg.db")
+library(ggplot2)
 
 setwd("~/Dropbox/COSMOS_MSB/results/input_range/")
 
@@ -144,3 +145,14 @@ oraCor_matrix <- as.data.frame(apply(oraCor_matrix,2,as.numeric))
 row.names(oraCor_matrix) <- names(oraCor_matrix)
 
 pheatmap(oraCor_matrix[-1,1,drop = F], cluster_rows = F, cluster_cols = F, display_numbers = T)
+
+to_bar_plot <- oraCor_matrix[-1,1,drop = F]
+to_bar_plot$threshold <- paste0('Threshold_',row.names(to_bar_plot))
+to_bar_plot$threshold <- factor(to_bar_plot$threshold, level = to_bar_plot$threshold)
+
+ggplot(to_bar_plot, aes(y = `0`, x = threshold)) + 
+  geom_bar(stat = 'identity') + 
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 270)) +
+  ylab("Pearson correlation of ORA p-values") +
+  ylim(c(0,1))

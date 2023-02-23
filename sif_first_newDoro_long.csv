@@ -1,0 +1,163 @@
+Node1,Sign,Node2,Weight
+NME2,1,NME2_NME1,38
+NME2,1,NME2_NME1,52
+CDS1,1,Metab__cdpdag_hs_m_,100
+Cytidine 5'-Monophosphate_m_,1,CMPK2,100
+CMPK2,1,Cytidine-5'-DIphosphate_m_,100
+NME2_NME1,1,Cytidine-5'-DIphosphate_n_,48
+NOS1,1,L-Citrulline_c_,53
+GGT6_GGTLC2,1,Reduced Glutathione_c_,34
+L-Glutamate_c_,1,GGT6_GGTLC2,34
+ENTPD1,1,Cytidine-5'-DIphosphate_e_,99
+ACO1,1,Cis-Aconitate_m_,90
+L-Glutamate_c_,1,LGSN,35
+LGSN,1,L-Glutamine_c_,35
+BCAT1,1,L-Glutamate_c_,55
+NME2_NME1,1,Cytidine-5'-DIphosphate_c_,100
+Metab__cdpdag_hs_m_,1,PGS1,99
+PGS1,1,Cytidine 5'-Monophosphate_m_,99
+ATM,1,PRKDC,46
+CDK5,1,ATM,100
+SP1,1,ENTPD1,100
+PRKCA,-1,NOS1,100
+PRKACA,-1,NOS1,100
+PRKCA,-1,ACO1,100
+ATM,1,CDS1,100
+MYC,1,NME2,52
+MYC,1,BCAT1,100
+ACAA1,1,ACOX3_EHHADH_HSD17B4_ACAA1,48
+ADA,1,Inosine_e_,100
+CRAT,1,O-Propanoylcarnitine_m_,100
+Propanoyl Coenzyme A_m_,1,CRAT,100
+Propanoyl Coenzyme A_x_,1,CRAT,100
+CRAT,1,O-Propanoylcarnitine_x_,100
+NT5E,1,Uridine_e_,100
+ACP5,1,Uridine_l_,100
+PDE10A,1,Guanosine-5'-Monophosphate_c_,96
+PDE10A,1,Guanosine-5'-Monophosphate_g_,100
+PDE9A,1,Guanosine-5'-Monophosphate_n_,100
+UPP2,1,Uridine_c_,100
+Alpha-D-Ribose 1-Phosphate_c_,1,UPP2,100
+CPT1A,1,O-Propanoylcarnitine_c_,50
+CPT1A,1,Isovaleryl Carnitine_c_,50
+ACOX3_EHHADH_HSD17B4_ACAA1,1,Propanoyl Coenzyme A_x_,48
+2-Deoxyadenosine_c_,1,PNP,42
+PNP,1,Adenine_c_,42
+Inosine_c_,1,PNP,100
+PNP,1,Hypoxanthine_c_,100
+PNP,1,Alpha-D-Ribose 1-Phosphate_c_,100
+NT5E,1,2-Deoxyadenosine_c_,42
+NT5E,1,Inosine_c_,52
+PLD1,1,Ethanolamine_c_,99
+ACAA1,1,Propanoyl Coenzyme A_m_,100
+P4HA2,1,Succinate_c_,100
+P4HA2,1,Succinate_m_,100
+KMT2A,1,S-Adenosyl-L-Homocysteine_c_,93
+EP300,1,TP53,41
+PDPK1,1,PRKCA,100
+EP300,1,ARNT,41
+TP53,1,P4HA2,100
+PRKCA,1,PLD1,99
+PRKACA,1,PDE10A,100
+CSNK2A1,-1,ARNT,100
+PRKDC,-1,POU2F1,46
+PDPK1,1,PRKACA,100
+YY1,1,TP53,41
+EP300,1,YY1,41
+EP300,1,MITF,41
+PRKCA,1,PPARA,47
+SRPK2,1,PRKACA,100
+PRKACA,1,PLD1,99
+PRKACA,1,PPARA,47
+ARNT,1,NT5E,100
+JUN,-1,CPT1A,50
+SP1,-1,CPT1A,50
+PPARA,1,ACAA1,47
+PRKACA,1,EP300,41
+EP300,1,CPT1A,32
+PRKCE,1,PLD1,99
+POU2F1,1,PDE9A,100
+YY1,1,ADA,41
+MITF,1,ACP5,100
+NME1,1,NME1_NME2,38
+NME1,1,NME2_NME1,48
+NME1_NME2,1,Cytidine-5'-DIphosphate_n_,52
+BCAT1,1,L-Glutamate_c_,18
+MYC,1,NME1,48
+CDK1,1,NME1,48
+PRKACA,-1,PRKAA1,53
+Adenosine_e_,1,ADA,59
+NT5E,1,Adenosine_e_,59
+CPT1C,1,O-Propanoylcarnitine_c_,50
+CPT1C,1,Isovaleryl Carnitine_c_,50
+Adenosine_c_,1,PNP,58
+PNP,1,Adenine_c_,58
+PNP,1,Alpha-D-Ribose 1-Phosphate_c_,58
+S-Adenosyl-L-Homocysteine_c_,1,AHCYL1,15
+AHCYL1,1,Adenosine_c_,15
+MAPK9,-1,RXRA,53
+MAPK14,1,TP53,25
+PRKAA1,-1,POU2F1,53
+MAPK8,-1,RXRA,53
+MAPK14,1,MITF,25
+PRKG1,1,MAPK14,25
+PRKCA,1,MAPK14,25
+PRKCA,1,RXRA,53
+RXRA,1,CPT1C,33
+RXRA,1,ACAA1,53
+L-Glutamate_c_,1,GLUL,65
+GLUL,1,L-Glutamine_c_,65
+Adenosine_c_,1,ADA,37
+ADA,1,Inosine_c_,48
+S-Adenosyl-L-Homocysteine_c_,1,AHCY,43
+AHCY,1,Adenosine_c_,43
+ACAA1,1,ACOX3_EHHADH_HSD17B4_ACAA1,32
+ACOX3_EHHADH_HSD17B4_ACAA1,1,Propanoyl Coenzyme A_x_,32
+ACAA1,1,Propanoyl Coenzyme A_x_,20
+NOS1,1,L-Citrulline_c_,47
+GGT5,1,Reduced Glutathione_c_,30
+L-Glutamate_c_,1,GGT5,30
+BCAT1,1,L-Glutamate_c_,27
+PRKAA1,-1,EP300,17
+NME1,1,NME2_NME1,10
+STAT1,-1,CREBBP,28
+CREBBP,1,ARNT,28
+PRKACA,1,CREBBP,28
+ATF4,-1,CREBBP,28
+CREBBP,1,TP53,28
+CREB3,-1,CREBBP,28
+CREBBP,1,CPT1A,14
+CREBBP,1,MITF,28
+RXRA,1,CPT1A,20
+GGT7,1,Reduced Glutathione_c_,20
+L-Glutamate_c_,1,GGT7,20
+PPARA,1,CPT1C,17
+NME2,1,NME1_NME2,14
+MAPKAPK2,1,CREB1,5
+ATM,-1,CREB1,5
+PRKACA,1,CREB1,5
+PRKG1,1,CREB1,5
+CREB1,1,TP53,5
+CREB1,1,MITF,5
+PRKAA1,1,TP53,1
+PRKAA1,1,CDK2,1
+PRKAA1,1,MAPK8,1
+PRKAA1,-1,HNF4A,1
+KMT2A,1,S-Adenosyl-L-Homocysteine_c_,3
+KMT2A,1,S-Adenosyl-L-Homocysteine_c_,4
+GGT2,1,Reduced Glutathione_c_,12
+L-Glutamate_c_,1,GGT2,12
+ACO1,1,Cis-Aconitate_m_,10
+PDE9A,1,Guanosine-5'-Monophosphate_c_,4
+GGT1,1,Reduced Glutathione_c_,4
+L-Glutamate_c_,1,GGT1,4
+ENTPD1,1,Cytidine-5'-DIphosphate_e_,1
+Metab__cdpdag_hs_m_,1,CRLS1,1
+CRLS1,1,Cytidine 5'-Monophosphate_m_,1
+Hydrogen Peroxide_x_,1,IL6,1
+Hydrogen Peroxide_x_,1,TP53,1
+ACOX3_EHHADH_HSD17B4_ACAA1,1,Hydrogen Peroxide_x_,1
+PLD2,1,Ethanolamine_c_,1
+PRKCA,1,PLD2,1
+IL6,1,MITF,1
+IL6,1,POU2F1,1

@@ -50,7 +50,7 @@ for(file in files)
 
 ori_carni_res <- carni_res_list[['0']]
 
-carni_res_list <- carni_res_list[-1]
+carni_res_list <- carni_res_list[c(2,3,17)]
 
 delta_list_forward <- lapply(carni_res_list, function(x, ori_carni_res){
   forward_shuffle <- x[[1]][[1]]
@@ -62,6 +62,7 @@ delta_list_forward <- lapply(carni_res_list, function(x, ori_carni_res){
   
   
   forward_ori <- ori_carni_res[[1]][[1]]
+  print(dim(forward_ori))
   forward_ori$Weight <- as.numeric(forward_ori$Weight)
   forward_ori$edgeIDs <- paste0(forward_ori$Node1, '______', forward_ori$Sign, '______', forward_ori$Node2)
   forward_ori <- forward_ori[,c(5,4)]
@@ -84,8 +85,13 @@ delta_df_for <- delta_df_for[order(delta_df_for$index, decreasing = F),]
 
 delta_df_for$index <- factor(delta_df_for$index, levels = unique(delta_df_for$index))
 
+test <- delta_df_for[delta_df_for$index == 10,]
+
+median(test$delta)
+
 ggplot(delta_df_for, aes(x = index, y = delta, group = index, fill = index)) + 
-  geom_boxplot(fill = "lightblue") +
+  # geom_boxplot(fill = "lightblue") +
+  geom_boxplot(alpha = 0.33) +
   geom_jitter(alpha = 0.2) +
   stat_summary(fun.y=median, geom="point", shape=23, fill = 'lightgrey', size = 4) +
   theme_minimal() +

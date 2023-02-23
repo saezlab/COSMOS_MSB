@@ -84,6 +84,10 @@ delta_df_for <- delta_df_for[delta_df_for$index %in% c(2,10,20,30,40,50),]
 
 delta_df_for$index <- factor(delta_df_for$index, levels = unique(delta_df_for$index))
 
+median(delta_df_for[delta_df_for$index == "2",'delta'])
+p2_totally_different <- delta_df_for[delta_df_for$index == "2" & delta_df_for$delta == 100,]
+length(p2_totally_different[,1])/length(delta_df_for[delta_df_for$index == "2",'delta'])
+
 ggplot(delta_df_for, aes(x = index, y = delta, group = index, fill = index)) + 
   geom_boxplot(fill = "lightblue") +
   geom_jitter(alpha = 0.2) +
@@ -92,6 +96,10 @@ ggplot(delta_df_for, aes(x = index, y = delta, group = index, fill = index)) +
   ggtitle('Forward COSMOS weight comparison') +
   xlab('% of edges shuffled') +
   ylab("Absolute edge weight difference")
+
+ggplot(delta_df_for, aes(x = delta, fill = index)) + 
+  geom_density(alpha = 0.33) +
+  theme_minimal()
 
 
 #####BACKWARD
@@ -136,3 +144,45 @@ ggplot(delta_df_back, aes(x = index, y = delta, group = index, fill = index)) +
   ggtitle('Backward COSMOS weight comparison') +
   xlab('% of edges shuffled') +
   ylab("Absolute edge weight difference")
+
+ggplot(delta_df_back, aes(x = delta, fill = index)) + 
+  geom_density(alpha = 0.33) +
+  theme_minimal()
+
+df <- delta_df_for
+for(index in unique(df$index))
+{
+  print(paste0('index : ',index))
+  print(median(df[df$index == index,'delta']))
+}
+
+df <- delta_df_back
+for(index in unique(df$index))
+{
+  print(paste0('index : ',index))
+  print(length(df[df$index == index & df$delta == 0,'delta']) / (length(df[df$index == index & df$delta == 0,'delta']) + length(df[df$index == index & df$delta == 100,'delta'])))
+}
+
+df <- delta_df_for
+for(index in unique(df$index))
+{
+  print(paste0('index : ',index))
+  print(length(df[df$index == index & df$Weight.y != 0,'delta']))
+}
+
+df <- delta_df_back
+for(index in unique(df$index))
+{
+  print(paste0('index : ',index))
+  print(length(df[df$index == index & df$Weight.y != 0,'delta']))
+}
+
+(149+237+342+340+142+312+195+302+281+288+287+275+277+250)/14
+
+sd(c(149,237,342,340,142,312,195,302,281,288,287,275,277,250))
+####full NETWORK
+
+delta_df_for$signed_delta <- delta_df_for$Weight.x - delta_df_for$Weight.y
+
+delta_df_for_X <- delta_df_for[delta_df_for$index == '2',]
+length(delta_df_for_X[delta_df_for_X$Weight.x == 0,1])

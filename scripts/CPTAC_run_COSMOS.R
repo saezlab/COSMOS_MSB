@@ -5,25 +5,25 @@ library(biomaRt)
 library('org.Hs.eg.db')
 library(igraph)
 library(CARNIVAL)
-source("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/revision_COSMOS_functions.R")
+source("Dropbox/COSMOS_MSB/scripts/COSMOS_functions.R")
 
-top_kinases <- as.data.frame(read_csv("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/ccrcc_CPTAC_top_kinase_carni_input.csv"))
+top_kinases <- as.data.frame(read_csv("Dropbox/COSMOS_MSB/data/CPTAC_top_kinase_carni_input.csv"))
 
-top_TF <- as.data.frame(read_csv("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/carni_TF_inputs.csv"))
+top_TF <- as.data.frame(read_csv("Dropbox/COSMOS_MSB/data/CPTAC_carni_TF_inputs.csv"))
 
 ttop_RNA <- as.data.frame(
-  read_csv("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/ttop_CPTAC_CCRCC.csv")
+  read_csv("Dropbox/COSMOS_MSB/data/CPTAC_RNA_ttop.csv")
 )
 
 meta_network <- as.data.frame(
-  read_csv("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/meta_network_CCRCC_CPTAC_expfiltered.csv"))
+  read_csv("Dropbox/COSMOS_MSB/support/metaPKN_CPTAC_filtered.csv"))
 
-load("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/dorothea_pkg_df.RData") #ABCD
+load("Dropbox/COSMOS_MSB/support/dorothea_pkg_df.RData") #ABCD
 
 ########## COSMOS #################
 
 
-setwd("/home/ad234505/COSMOS_revisions/CCRCC_CPTAC/")
+setwd("Dropbox/COSMOS_MSB/results/CPTAC/")
 
 my_stat <- "t" 
 my_threshold <- 1
